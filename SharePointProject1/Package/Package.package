@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="87cf14e5-1a2c-49f8-b5f6-0cb488cef5be" solutionId="87cf14e5-1a2c-49f8-b5f6-0cb488cef5be" resetWebServer="false" sharePointProductVersion="16.0" name="SharePointProject1" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="ILX.EF.DL.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\ILX.EF.DL\ILX.EF.DL.csproj" />
+    <customAssembly location="EntityFramework.dll" deploymentTarget="WebApplication" sourcePath="..\ILX.EF.DL\bin\Debug\EntityFramework.dll" />
+    <customAssembly location="EntityFramework.SqlServer.dll" deploymentTarget="WebApplication" sourcePath="..\ILX.EF.DL\bin\Debug\EntityFramework.SqlServer.dll" />
+  </assemblies>
+  <projectItems>
+    <projectItemReference itemId="48a8612f-1261-4abc-b6f0-7117c22222d4" />
+    <projectItemReference itemId="e9cd72a7-4513-4c22-bd29-05d86ab05b0b" />
+  </projectItems>
+</package>

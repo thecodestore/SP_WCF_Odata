@@ -1,0 +1,2 @@
+﻿<%@ Assembly Name="SharePointProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b5f93e6ddc296706" %>
+<%@ ServiceHost Language="C#" Debug="true"   Service="SharePointProject1.ISAPI.Insta.EF.PortalService, SharePointProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b5f93e6ddc296706"     CodeBehind="PortalService.cs"    Factory="Microsoft.SharePoint.Client.Services.MultipleBaseAddressWebServiceHostFactory,     Microsoft.SharePoint.Client.ServerRuntime, Version=15.0.0.0, Culture=neutral,     PublicKeyToken=71e9bce111e9429c" %>
