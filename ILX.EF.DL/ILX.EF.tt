@@ -25,7 +25,91 @@ foreach (var entity1 in typeMapper.GetItemsToGenerate<EntityType>(itemCollection
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>
 		<#=codeStringGenerator.ViewModelEntityClassOpening(entity1)#>
 		{
-		}<#
+		<#
+    var propertiesWithDefaultValues1 = typeMapper.GetPropertiesWithDefaultValues(entity1);
+    var collectionNavigationProperties1 = typeMapper.GetCollectionNavigationProperties(entity1);
+    var complexProperties1 = typeMapper.GetComplexProperties(entity1);
+
+    if (propertiesWithDefaultValues1.Any() || collectionNavigationProperties1.Any() || complexProperties1.Any())
+    {
+	
+#>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public <#=code.Escape(entity1)#>()
+    {
+<#
+        foreach (var edmProperty in propertiesWithDefaultValues1)
+        {
+#>
+        this.<#=code.Escape(edmProperty)#> = <#=typeMapper.CreateLiteral(edmProperty.DefaultValue)#>;
+<#
+        }
+
+        foreach (var navigationProperty in collectionNavigationProperties1)
+        {
+#>
+        this.<#=code.Escape(navigationProperty)#> = new HashSet<<#=typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType())#>>();
+<#
+        }
+
+        foreach (var complexProperty in complexProperties1)
+        {
+#>
+        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
+<#
+        }
+#>
+    }
+
+<#
+    }
+
+    var simpleProperties1 = typeMapper.GetSimpleProperties(entity1);
+    if (simpleProperties1.Any())
+    {
+        foreach (var edmProperty in simpleProperties1)
+        {
+#>
+    <#=codeStringGenerator.Property(edmProperty)#>
+<#
+        }
+    }
+
+    if (complexProperties1.Any())
+    {
+#>
+
+<#
+        foreach(var complexProperty in complexProperties1)
+        {
+#>
+    <#=codeStringGenerator.Property(complexProperty)#>
+<#
+        }
+    }
+
+    var navigationProperties1 = typeMapper.GetNavigationProperties(entity1);
+    if (navigationProperties1.Any())
+    {
+#>
+
+<#
+        foreach (var navigationProperty in navigationProperties1)
+        {
+            if (navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
+            {
+#>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<#
+            }
+#>
+    <#=codeStringGenerator.NavigationProperty(navigationProperty)#>
+<#
+        }
+    }
+#>
+}
+		<#
 	 EndNamespace(code);
 }
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
