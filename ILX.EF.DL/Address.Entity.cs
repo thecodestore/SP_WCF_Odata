@@ -14,7 +14,13 @@ namespace ILX.EF.DL
     
     		public  class AddressRepoEntity 
     		{
-    		    public int AddressID { get; set; }
+    				[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AddressRepoEntity()
+        {
+            this.BusinessEntityAddresses = new HashSet<BusinessEntityAddress>();
+        }
+    
+        public int AddressID { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
@@ -23,5 +29,9 @@ namespace ILX.EF.DL
         public System.Data.Entity.Spatial.DbGeography SpatialLocation { get; set; }
         public System.Guid rowguid { get; set; }
         public System.DateTime ModifiedDate { get; set; }
+    
+        public virtual StateProvince StateProvince { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BusinessEntityAddress> BusinessEntityAddresses { get; set; }
     }
     		}

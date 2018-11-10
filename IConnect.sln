@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointProject1", "Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILX.EF.DL", "ILX.EF.DL\ILX.EF.DL.csproj", "{B5FF1096-BEB9-4BA2-AF33-E398D053D58E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoConsoleApp", "DemoConsoleApp\DemoConsoleApp.csproj", "{C1D58A89-55CC-4422-B56E-B26458AB6FDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{B5FF1096-BEB9-4BA2-AF33-E398D053D58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5FF1096-BEB9-4BA2-AF33-E398D053D58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5FF1096-BEB9-4BA2-AF33-E398D053D58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

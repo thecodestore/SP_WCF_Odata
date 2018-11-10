@@ -62,7 +62,49 @@
     <Compile Include="Address.Entity.cs">
       <DependentUpon>ILX.EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddressType.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddressType.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntity.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntityAddress.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntityAddress.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntityContact.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntityContact.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="ContactType.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactType.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryRegion.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryRegion.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAddress.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAddress.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="EOLEntities.cs" />
     <Compile Include="ILX.EF.Context.cs">
       <AutoGen>True</AutoGen>
@@ -79,13 +121,55 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ILX.EF.DL.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Password.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Password.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs">
       <DependentUpon>ILX.EF.tt</DependentUpon>
     </Compile>
     <Compile Include="Person.Entity.cs">
       <DependentUpon>ILX.EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="PersonPhone.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonPhone.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneNumberType.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneNumberType.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateProvince.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateProvince.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableA.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableA.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableB.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableB.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableD.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableD.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ILX.EF.DL.edmx">

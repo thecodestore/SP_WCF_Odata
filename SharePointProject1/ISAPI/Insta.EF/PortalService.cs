@@ -52,7 +52,8 @@ namespace SharePointProject1.ISAPI.Insta.EF
 				SPSecurity.RunWithElevatedPrivileges(delegate ()
 				{
 					EOLEntities ent = new EOLEntities();
-					var adata = ent.getAddress(deleg)
+					Object oo = null;
+					var adata = ent.getAddress(deleg, out oo)
 					.Select(aaa => new AddressEntity
 					{   AddressLine1 = aaa.AddressLine1,
 						AddressLine2 = aaa.AddressLine2,
