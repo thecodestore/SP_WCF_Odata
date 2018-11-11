@@ -2,28 +2,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DemoConsoleApp
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			EOLEntities ent = new EOLEntities();
 			List<TableA> data = ent.GetTableA();
-			var aa = new TableA();
+			TableA aa = new TableA();
 			aa.ID = 1;
-		
+
 			aa.Title = System.DateTime.Now.ToString("yyyy-MM-dd (HH:mm:ss)");
-			var tlA = new List<TableB>();
-			tlA.Add(new TableB { ID=9,  TableAID=1, TableA =aa });
-			tlA.Add(new TableB {  TableAID = 1 });
+			List<TableB> tlA = new List<TableB>();
+			tlA.Add(new TableB { TableAID = 1, UserID=45});
+			tlA.Add(new TableB { TableAID = 1, UserID=2 });
+			tlA.Add(new TableB { TableAID = 1, UserID = 20 });
+			//tlA.Add(new TableB { TableAID = 1, UserID = 3 });
 			aa.TableBs = tlA;
 			aa.TableDs = default(List<TableD>);
 
-			var curdata = data.FirstOrDefault();
+			TableA curdata = data.FirstOrDefault();
 			//Console.WriteLine("---------------------------");
 			//if (curdata.TableBs.Count >0)
 			//{
@@ -34,8 +34,8 @@ namespace DemoConsoleApp
 			//}
 
 			ent.UpdateTableA(aa);
-		 	Console.WriteLine("Total rows: " + data.Count.ToString());
-			Console.ReadLine();
+			Console.WriteLine("Total rows: " + data.Count.ToString());
+			//Console.ReadLine();
 		}
 	}
 }

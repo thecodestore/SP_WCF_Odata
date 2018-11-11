@@ -29,14 +29,29 @@ namespace ILX.EF.DL
 
 				foreach (var item in ent.TableBs.ToList())
 				{
-					var tblB = tblA.TableBs.Where(a => a.ID == item.ID).FirstOrDefault();
+					var tblB = tblA.TableBs.Where(a => a.UserID == item.UserID).FirstOrDefault();
 					if (tblB == null)
 					{
 						db.TableBs.Remove(item);
 					}
+					else
+					{
+						//.TableA = ent; 						
+						var oldEnt = ent.TableBs.Where(a => a.UserID == tblB.UserID).FirstOrDefault();
+						if (oldEnt != null)
+						{
+							tblB.ID = oldEnt.ID;
+							db.Entry(ent.TableBs.Where(a => a.UserID == tblB.UserID).FirstOrDefault()).CurrentValues.SetValues(tblB);
+						}
+					}
 				}
-				var ee = tblA.TableBs.Where(a => a.ID == 0).FirstOrDefault();
-				ent.TableBs.Add(ee);
+
+				var entities = tblA.TableBs.Where(a => a.ID == 0).ToList();
+				foreach (var itemEnt in tblA.TableBs.Where(a => a.ID == 0).ToList())
+				{
+					ent.TableBs.Add(itemEnt);
+				}
+				
 				//var diff2 = ent.TableBs
 				//	.Where(a =>
 				//	a.ID == tblA.TableBs.Where(ss => ss.ID == a.ID).FirstOrDefault().ID).ToList();
