@@ -36,6 +36,9 @@
         <AssociationConnector Association="AdventureWorks2012Model.FK_TableD_TableD" />
         <EntityTypeShape EntityType="AdventureWorks2012Model.TableB" Width="1.5" PointX="13.625" PointY="10.375" />
         <AssociationConnector Association="AdventureWorks2012Model.FK_TableB_TableB" />
+        <EntityTypeShape EntityType="AdventureWorks2012Model.SPCoreUser" Width="1.5" PointX="11.375" PointY="14.625" />
+        <AssociationConnector Association="AdventureWorks2012Model.FK_TableB_SPCoreUser" />
+        <AssociationConnector Association="AdventureWorks2012Model.FK_TableD_SPCoreUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

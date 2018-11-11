@@ -20,13 +20,11 @@ namespace ILX.EF.DL
 		{
 			using (var dbContextTransaction = db.Database.BeginTransaction())
 			{
-
+				var ent1 = db.TableAs.Where(a => a.TableBs.Where(aa => aa.SPCoreUser.FirstName.Contains("aa")).Count() > 0).ToList();
 				var ent = db.TableAs.Find(tblA.ID);
-				
 				tblA.Description = ent.Title;
 				ent.Description = ent.Title;
 				ent.Title = tblA.Title;
-
 				foreach (var item in ent.TableBs.ToList())
 				{
 					var tblB = tblA.TableBs.Where(a => a.UserID == item.UserID).FirstOrDefault();

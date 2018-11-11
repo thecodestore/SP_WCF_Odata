@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AdventureWorks2012Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SPCoreUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="TableA">
           <Key>
             <PropertyRef Name="ID" />
@@ -327,6 +337,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TableB_SPCoreUser">
+          <End Role="SPCoreUser" Type="Self.SPCoreUser" Multiplicity="0..1" />
+          <End Role="TableB" Type="Self.TableB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPCoreUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TableB_TableB">
           <End Role="TableA" Type="Self.TableA" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -338,6 +360,18 @@
             </Principal>
             <Dependent Role="TableB">
               <PropertyRef Name="TableAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableD_SPCoreUser">
+          <End Role="SPCoreUser" Type="Self.SPCoreUser" Multiplicity="0..1" />
+          <End Role="TableD" Type="Self.TableD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPCoreUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableD">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -356,6 +390,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AdventureWorks2012ModelStoreContainer">
+          <EntitySet Name="SPCoreUser" EntityType="Self.SPCoreUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TableA" EntityType="Self.TableA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TableB" EntityType="Self.TableB" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TableD" EntityType="Self.TableD" Schema="dbo" store:Type="Tables" />
@@ -424,9 +459,17 @@
             <End Role="CountryRegion" EntitySet="CountryRegion" />
             <End Role="StateProvince" EntitySet="StateProvince" />
           </AssociationSet>
+          <AssociationSet Name="FK_TableB_SPCoreUser" Association="Self.FK_TableB_SPCoreUser">
+            <End Role="SPCoreUser" EntitySet="SPCoreUser" />
+            <End Role="TableB" EntitySet="TableB" />
+          </AssociationSet>
           <AssociationSet Name="FK_TableB_TableB" Association="Self.FK_TableB_TableB">
             <End Role="TableA" EntitySet="TableA" />
             <End Role="TableB" EntitySet="TableB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableD_SPCoreUser" Association="Self.FK_TableD_SPCoreUser">
+            <End Role="SPCoreUser" EntitySet="SPCoreUser" />
+            <End Role="TableD" EntitySet="TableD" />
           </AssociationSet>
           <AssociationSet Name="FK_TableD_TableD" Association="Self.FK_TableD_TableD">
             <End Role="TableA" EntitySet="TableA" />
@@ -552,6 +595,15 @@
           <AssociationSet Name="FK_TableB_TableB" Association="AdventureWorks2012Model.FK_TableB_TableB">
             <End Role="TableA" EntitySet="TableAs" />
             <End Role="TableB" EntitySet="TableBs" />
+          </AssociationSet>
+          <EntitySet Name="SPCoreUsers" EntityType="AdventureWorks2012Model.SPCoreUser" />
+          <AssociationSet Name="FK_TableB_SPCoreUser" Association="AdventureWorks2012Model.FK_TableB_SPCoreUser">
+            <End Role="SPCoreUser" EntitySet="SPCoreUsers" />
+            <End Role="TableB" EntitySet="TableBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableD_SPCoreUser" Association="AdventureWorks2012Model.FK_TableD_SPCoreUser">
+            <End Role="SPCoreUser" EntitySet="SPCoreUsers" />
+            <End Role="TableD" EntitySet="TableDs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AddressType">
@@ -857,6 +909,7 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="TableAID" Type="Int32" />
           <NavigationProperty Name="TableA" Relationship="AdventureWorks2012Model.FK_TableD_TableD" FromRole="TableD" ToRole="TableA" />
+          <NavigationProperty Name="SPCoreUser" Relationship="AdventureWorks2012Model.FK_TableD_SPCoreUser" FromRole="TableD" ToRole="SPCoreUser" />
         </EntityType>
         <Association Name="FK_TableD_TableD">
           <End Type="AdventureWorks2012Model.TableA" Role="TableA" Multiplicity="0..1">
@@ -880,6 +933,7 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="TableAID" Type="Int32" />
           <NavigationProperty Name="TableA" Relationship="AdventureWorks2012Model.FK_TableB_TableB" FromRole="TableB" ToRole="TableA" />
+          <NavigationProperty Name="SPCoreUser" Relationship="AdventureWorks2012Model.FK_TableB_SPCoreUser" FromRole="TableB" ToRole="SPCoreUser" />
         </EntityType>
         <Association Name="FK_TableB_TableB">
           <End Type="AdventureWorks2012Model.TableA" Role="TableA" Multiplicity="0..1">
@@ -892,6 +946,42 @@
             </Principal>
             <Dependent Role="TableB">
               <PropertyRef Name="TableAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SPCoreUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableBs" Relationship="AdventureWorks2012Model.FK_TableB_SPCoreUser" FromRole="SPCoreUser" ToRole="TableB" />
+          <NavigationProperty Name="TableDs" Relationship="AdventureWorks2012Model.FK_TableD_SPCoreUser" FromRole="SPCoreUser" ToRole="TableD" />
+        </EntityType>
+        <Association Name="FK_TableB_SPCoreUser">
+          <End Type="AdventureWorks2012Model.SPCoreUser" Role="SPCoreUser" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.TableB" Role="TableB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPCoreUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableD_SPCoreUser">
+          <End Type="AdventureWorks2012Model.SPCoreUser" Role="SPCoreUser" Multiplicity="0..1" />
+          <End Type="AdventureWorks2012Model.TableD" Role="TableD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPCoreUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableD">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1072,6 +1162,17 @@
               <MappingFragment StoreEntitySet="TableB">
                 <ScalarProperty Name="TableAID" ColumnName="TableAID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPCoreUsers">
+            <EntityTypeMapping TypeName="AdventureWorks2012Model.SPCoreUser">
+              <MappingFragment StoreEntitySet="SPCoreUser">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

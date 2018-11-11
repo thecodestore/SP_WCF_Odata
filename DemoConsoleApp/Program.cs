@@ -16,9 +16,9 @@ namespace DemoConsoleApp
 
 			aa.Title = System.DateTime.Now.ToString("yyyy-MM-dd (HH:mm:ss)");
 			List<TableB> tlA = new List<TableB>();
-			tlA.Add(new TableB { TableAID = 1, UserID=45});
+			tlA.Add(new TableB { TableAID = 1, UserID=1});
 			tlA.Add(new TableB { TableAID = 1, UserID=2 });
-			tlA.Add(new TableB { TableAID = 1, UserID = 20 });
+			tlA.Add(new TableB { TableAID = 1, UserID = 3 });
 			//tlA.Add(new TableB { TableAID = 1, UserID = 3 });
 			aa.TableBs = tlA;
 			aa.TableDs = default(List<TableD>);

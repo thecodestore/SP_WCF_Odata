@@ -41,5 +41,6 @@ namespace ILX.EF.DL
         public virtual DbSet<TableA> TableAs { get; set; }
         public virtual DbSet<TableD> TableDs { get; set; }
         public virtual DbSet<TableB> TableBs { get; set; }
+        public virtual DbSet<SPCoreUser> SPCoreUsers { get; set; }
     }
 }

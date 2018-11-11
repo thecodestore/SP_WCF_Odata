@@ -146,6 +146,12 @@
       <DependentUpon>ILX.EF.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SPCoreUser.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPCoreUser.Entity.cs">
+      <DependentUpon>ILX.EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="StateProvince.cs">
       <DependentUpon>ILX.EF.tt</DependentUpon>
     </Compile>

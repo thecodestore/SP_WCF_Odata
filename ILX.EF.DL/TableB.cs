@@ -19,5 +19,6 @@ namespace ILX.EF.DL
         public Nullable<int> TableAID { get; set; }
     
         public virtual TableA TableA { get; set; }
+        public virtual SPCoreUser SPCoreUser { get; set; }
     }
 }
