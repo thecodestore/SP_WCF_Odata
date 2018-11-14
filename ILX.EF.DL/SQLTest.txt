@@ -1,0 +1,33 @@
+﻿/****** Script for SelectTopNRows command from SSMS  ******/
+
+SELECT DISTINCT AA.*, 
+    SUBSTRING(
+        (
+ SELECT distinct ','+S.UserName  AS [text()]
+
+ -- SELECT COALESCE( S.UserName + ',' ,' ')
+  FROM [dbo].[TableA] A 
+  join TableB B on A.ID = B.TableAID
+  join SPCoreUser S on S.ID = B.UserID
+  where AA.ID = A.ID
+ FOR XML PATH ('')
+  ), 2, 1000) UsersB
+  ,
+   SUBSTRING(
+        (
+ SELECT distinct ','+S.UserName  AS [text()]
+
+ -- SELECT COALESCE( S.UserName + ',' ,' ')
+  FROM [dbo].[TableA] AD
+  join TableD D on AD.ID = D.TableAID
+ inner join SPCoreUser S on S.ID = D.UserID
+  where AA.ID = AD.ID and S.UserName like 'aa'
+ FOR XML PATH ('')
+  ), 2, 1000) UsersD
+FROM [dbo].[TableA] AA 
+
+  select * from [dbo].[TableA]
+
+  select * from [dbo].[TableB]
+  select * from [dbo].[TableD]
+  select * from [dbo].[SPCoreUser]
