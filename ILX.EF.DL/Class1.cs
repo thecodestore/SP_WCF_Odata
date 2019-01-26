@@ -10,8 +10,15 @@ namespace ILX.EF.DL
 {
     public class EFHelper
     {
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="DataSource"></param>
+		/// <param name="Database"></param>
+		/// <returns></returns>
 		public static String BuildConnectionString(String DataSource, String Database)
 		{
+			///
 			SqlConnectionStringBuilder sConnB = new SqlConnectionStringBuilder()
 			{
 				DataSource = DataSource,
