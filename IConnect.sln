@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILX.EF.DL", "ILX.EF.DL\ILX.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoConsoleApp", "DemoConsoleApp\DemoConsoleApp.csproj", "{C1D58A89-55CC-4422-B56E-B26458AB6FDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILX.Portal.Web", "ILX.Portal.Web\ILX.Portal.Web.csproj", "{8F11C01B-EA90-4CAE-AD46-2B1305914E8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1D58A89-55CC-4422-B56E-B26458AB6FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F11C01B-EA90-4CAE-AD46-2B1305914E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F11C01B-EA90-4CAE-AD46-2B1305914E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F11C01B-EA90-4CAE-AD46-2B1305914E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F11C01B-EA90-4CAE-AD46-2B1305914E8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
