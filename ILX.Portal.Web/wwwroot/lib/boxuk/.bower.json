@@ -1,0 +1,13 @@
+{
+  "name": "boxuk",
+  "_cacheHeaders": {
+    "ETag": "\"3ef6f3e8e0e2283986d2b48fffefd27b6a5d18b8\"",
+    "Content-Length": "1995",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:3ef6f3e8e",
+  "main": "index.css",
+  "_source": "https://raw.githubusercontent.com/daylerees/colour-schemes/master/highlightjs/boxuk.css",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/daylerees/colour-schemes/master/highlightjs/boxuk.css"
+}

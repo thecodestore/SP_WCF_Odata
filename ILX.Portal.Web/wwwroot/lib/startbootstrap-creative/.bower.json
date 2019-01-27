@@ -1,0 +1,14 @@
+{
+  "name": "startbootstrap-creative",
+  "homepage": "https://github.com/BlackrockDigital/startbootstrap-creative",
+  "version": "3.3.7",
+  "_release": "3.3.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.3.7",
+    "commit": "bacfeddc5e7f2f858eda69748cc77d29ba750480"
+  },
+  "_source": "https://github.com/BlackrockDigital/startbootstrap-creative.git",
+  "_target": "3.3.7",
+  "_originalSource": "startbootstrap-creative"
+}

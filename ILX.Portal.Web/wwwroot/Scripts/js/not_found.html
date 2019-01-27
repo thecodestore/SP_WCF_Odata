@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>404 Not Found</TITLE>
+<BASE href="/error_docs/"><!--[if lte IE 6]></BASE><![endif]-->
+</HEAD>
+<BODY>
+<H1>"Oops, this page no longer exists, redirecting you to another more helpful page in 10 seconds (<a href='/'>click here</a> if you are not redirected).</H1>
+
+
+<script>
+function myFunction() {
+   var currentURL = window.location.href;
+if (/[?|=|&]/.test(currentURL)){
+  newURL = currentURL.replace(/[?|=|&]/g, "/");
+  window.location=newURL;
+}
+}
+
+setTimeout(myFunction, 10000);
+</script>
+
+
+</BODY>
+</HTML>
