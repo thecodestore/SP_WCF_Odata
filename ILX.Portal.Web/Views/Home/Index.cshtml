@@ -1,13 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 @functions{
-    public string GetAntiForgeryToken()
-    {
-        string cookieToken="", formToken="";
-       //AntiForgery.GetTokens(null, out cookieToken, out formToken);
-        return cookieToken + ":" + formToken;
-    }
+	public string GetAntiForgeryToken()
+	{
+		string cookieToken = "", formToken = "";
+		//AntiForgery.GetTokens(null, out cookieToken, out formToken);
+		return cookieToken + ":" + formToken;
+	}
 }
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
@@ -39,7 +39,9 @@
 					<li> <a class="page-scroll" href="#features">Features</a> </li>
 					<li> <a class="page-scroll" href="#portfolio">Services</a> </li>
 					<li> <a class="page-scroll" href="#contact">Contact</a> </li>
-					@Html.Partial("_UserSettings")
+					<li>
+						@Html.Partial("_UserSettings")
+					</li>
 				</ul>
 			</div>
 
@@ -538,48 +540,48 @@
 	<div class="ngdialog-message">
 		<div id="main-content">
 			@if (@User.Identity.IsAuthenticated)
-            {
-			<hr />
-			<p class="error" data-bind="text: error"></p>
-			<input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
-			<button data-bind="click: addTodoList">Add Todo list</button>
+			{
+				<hr />
+				<p class="error" data-bind="text: error"></p>
+				<input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+				<button data-bind="click: addTodoList">Add Todo list</button>
 
-			<section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
-				<article class="todoList">
-					<header>
-						<form data-bind="validate: true">
-							<input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
+				<section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
+					<article class="todoList">
+						<header>
+							<form data-bind="validate: true">
+								<input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
+							</form>
+						</header>
+
+						<a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
+
+						<ul data-bind="foreach: todos">
+							<li>
+								<input type="checkbox" data-bind="checked: isDone" />
+								<input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
+								<a href="#" data-bind="click: $parent.deleteTodo">X</a>
+								<p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+							</li>
+						</ul>
+
+						<form data-bind="submit: addTodo">
+							<input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
 						</form>
-					</header>
 
-					<a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
-
-					<ul data-bind="foreach: todos">
-						<li>
-							<input type="checkbox" data-bind="checked: isDone" />
-							<input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
-							<a href="#" data-bind="click: $parent.deleteTodo">X</a>
-							<p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-						</li>
-					</ul>
-
-					<form data-bind="submit: addTodo">
-						<input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
-					</form>
-
-					<p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-				</article>
-			</section>
-            }
-            else
-            {
-
-			<div id="loginPanel">
-				<section id="localLoginPanel">
-					***LOGIN*****
+						<p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+					</article>
 				</section>
-			</div>
-            }
+			}
+			else
+			{
+
+				<div id="loginPanel">
+					<section id="localLoginPanel">
+						***LOGIN*****
+					</section>
+				</div>
+			}
 		</div>
 	</div>
 </script>

@@ -319,7 +319,7 @@ angular.module('ngMessages', [])
     *   <file name="index.html">
     *     <form name="myForm">
     *       <label>
-    *         Enter your name:
+    *         ffEnter your name:
     *         <input type="text"
     *                name="myName"
     *                ng-model="name"

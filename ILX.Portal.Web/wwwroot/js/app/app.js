@@ -380,7 +380,7 @@
                     templateOptions: {
                         label: 'Your Name',
                         placeholder: 'Enter your name',
-                        focus: true,
+                        focus: false
                     }
                 },
                 {
@@ -553,9 +553,9 @@
 
                     templateOptions: {
                         label: 'Your Name',
-                        placeholder: 'Enter your name',
+                        placeholder: 'Enter your name234',
                         required: true,
-                        focus: true,
+                        focus: false,
                     }
                 },
                 {

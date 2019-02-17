@@ -324,7 +324,7 @@ angular.module('ngMessages', [], function initAngularHelpers() {
    *   <file name="index.html">
    *     <form name="myForm">
    *       <label>
-   *         Enter your name:
+   *         sssssEnter your name:
    *         <input type="text"
    *                name="myName"
    *                ng-model="name"

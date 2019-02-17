@@ -560,7 +560,7 @@ app5.controller('registerController', function MainCtrl(formlyVersion) {
 
              templateOptions: {
                  label: 'Your Name',
-                 placeholder: 'Enter your name',
+                 placeholder: 'Enter your namesssss',
                  required: true,
                  focus: true,
              }

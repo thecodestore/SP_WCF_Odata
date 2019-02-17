@@ -377,8 +377,8 @@ app5.controller('contactController', function MainCtrl(formlyVersion) {
             
              templateOptions: {
                  label: 'Your Name',
-                 placeholder: 'Enter your name',
-                 focus: true,
+                 placeholder: 'Enter your name................',
+                 focus: false,
              }
          },
         {
@@ -550,9 +550,9 @@ app5.controller('registerController', function MainCtrl(formlyVersion) {
 
              templateOptions: {
                  label: 'Your Name',
-                 placeholder: 'Enter your name',
+                 placeholder: 'c Enter your name(*)',
                  required: true,
-                 focus: true,
+                 focus: false,
              }
          },
          {
