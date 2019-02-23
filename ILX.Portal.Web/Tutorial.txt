@@ -1,0 +1,7 @@
+﻿
+C:\WorkArea\Projects\POC\SP_WCF_Odata\ILX.Portal.Web>dotnet ef migrations add AddedIdentityUserColumns
+
+dotnet ef database update
+dotnet ef database update
+
+dotnet ef migrations add AddedUserFieldV1.0

@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ILX.Portal.Web.Data
 {
-	public class ApplicationUser1
+	public class ApplicationUser: IdentityUser
 	{
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 		public string Address { get; set; }
 		public DateTime DateOfBirth { get; set; }
+
+		public string UserType { get; set; }
+		public bool	 IsDisabled { get; set; }
+		public bool	IsDeleted { get; set; }
 	}
 }

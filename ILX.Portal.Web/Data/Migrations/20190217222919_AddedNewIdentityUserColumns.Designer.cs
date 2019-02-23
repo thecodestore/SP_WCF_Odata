@@ -4,14 +4,16 @@ using ILX.Portal.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ILX.Portal.Web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190217222919_AddedNewIdentityUserColumns")]
+    partial class AddedNewIdentityUserColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,10 +42,6 @@ namespace ILX.Portal.Web.Data.Migrations
 
                     b.Property<string>("FirstName");
 
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<bool>("IsDisabled");
-
                     b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
@@ -68,8 +66,6 @@ namespace ILX.Portal.Web.Data.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
-
-                    b.Property<string>("UserType");
 
                     b.HasKey("Id");
 
