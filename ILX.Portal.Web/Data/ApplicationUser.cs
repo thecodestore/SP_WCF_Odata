@@ -16,5 +16,13 @@ namespace ILX.Portal.Web.Data
 		public string UserType { get; set; }
 		public bool	 IsDisabled { get; set; }
 		public bool	IsDeleted { get; set; }
+
+	public string DisplayName
+		{
+			get
+			{
+				return string.Format("{0} {1}",FirstName, LastName);
+			}
+		}
 	}
 }

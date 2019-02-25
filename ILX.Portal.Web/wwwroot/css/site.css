@@ -40,3 +40,13 @@ li > form {
 	padding-top: 15px;
 	padding-right: 50px;
 }
+form > hr, section > hr, .accountSetting > div > hr  {
+	max-width: 99% !important;
+}
+.accountSetting > div > div > div > h4 {
+	color: #273746;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
