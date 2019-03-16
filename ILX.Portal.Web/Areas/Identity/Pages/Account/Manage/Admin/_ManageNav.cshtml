@@ -1,0 +1,15 @@
+﻿@using  ILX.Portal.Web.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+	var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills nav-stacked">
+	<li class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-page="./Index">1111Profile</a></li>
+	<li class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a id="change-password" asp-page="./ChangePassword">222Passwordssss</a></li>
+	@if (hasExternalLogins)
+	{
+		<li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a id="external-login" asp-page="./ExternalLogins">333External logins</a></li>
+	}
+	<li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-page="./TwoFactorAuthentication">444Two-factor authentication</a></li>
+	<li class="@ManageNavPages.PersonalDataNavClass(ViewContext)"><a asp-page="./PersonalData">555Personal data</a></li>
+</ul>

@@ -25,6 +25,7 @@ namespace ILX.Portal.Web.Areas.Identity.Pages.Account.Manage
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender)
         {
+			
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
